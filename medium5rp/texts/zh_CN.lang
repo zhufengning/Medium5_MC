@@ -1,0 +1,6 @@
+entity.five:haiyi.name=海伊
+item.spawn_egg.entity.five:haiyi.name=海伊蛋
+entity.five:bigshuimu.name=海伊（水母）
+item.spawn_egg.entity.five:bigshuimu.name=海伊（水母）蛋
+entity.five:shuimu.name=小水母
+item.five:haiyi_core.name=“海伊”

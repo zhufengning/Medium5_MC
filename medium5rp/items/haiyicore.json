@@ -1,0 +1,12 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "five:haiyi_core",
+			"category": "Equipment"
+		},
+		"components": {
+			"minecraft:icon": "five:haiyi_core"
+		}
+	}
+}

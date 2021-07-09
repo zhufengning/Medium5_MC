@@ -1,0 +1,166 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "five:haiyi",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"minecraft:convert_to_shuimu": {
+				"minecraft:transformation": {
+					"into": "five:bigshuimu",
+					"transformation_sound": "bow.hit",
+					"delay": {
+						"value": 0
+					}
+				},
+				"minecraft:is_shaking": {}
+			}
+		},
+		"components": {
+			"minecraft:behavior.ranged_attack": {
+				"priority": 0,
+				"attack_interval_min": 1.0,
+				"attack_interval_max": 3.0,
+				"attack_radius": 15.0
+			},
+			"minecraft:shooter": {
+				"def": "five:shuimu"
+			},
+			"minecraft:attack": {
+				"damage": 3
+			},
+            "minecraft:behavior.move_to_water": {
+                "priority": 5,
+                "search_range": 16,
+                "search_height": 5,
+                "goal_radius": 1.5
+            },
+            "minecraft:behavior.move_to_land": {
+              "priority": 5,
+              "search_range": 16,
+              "search_height": 5,
+              "goal_radius": 0.5
+            },
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"must_see": false,
+				"reselect_targets": true,
+				"within_radius": 25.0,
+				"must_see_forget_duration": 17.0,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "chicken"
+								}
+							]
+						},
+						"max_dist": 35
+					}
+				]
+			},
+			"minecraft:nameable": {},
+			"minecraft:health": {
+				"value": 10,
+				"max": 10
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.25
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"avoid_water": false,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 0.9,
+				"height": 1.9
+			},
+			"minecraft:leashable": {
+				"soft_distance": 4.0,
+				"hard_distance": 6.0,
+				"max_distance": 10.0
+			},
+			// "minecraft:balloonable": {
+			//   "mass": 0.75
+			// },
+			"minecraft:behavior.mount_pathing": {
+				"speed_multiplier": 1.25,
+				"target_dist": 0.0,
+				"track_target": true
+			},
+			// "minecraft:behavior.float": {
+			// },
+			"minecraft:behavior.random_stroll": {
+				"speed_multiplier": 1.0
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.12
+			},
+			"minecraft:behavior.random_swim": {},
+			"minecraft:movement.amphibious": {},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6.0,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:environment_sensor": {
+				"triggers": {
+					"filters": {
+						"test": "is_underwater",
+						"operator": "==",
+						"value": true
+					},
+					"event": "minecraft:convert_to_shuimu"
+				}
+			},
+			"minecraft:loot": {
+			 "table": "loot_tables/entities/haiyi.json"
+			}
+		},
+		"events":{
+			"minecraft:convert_to_shuimu": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"minecraft:convert_to_shuimu"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

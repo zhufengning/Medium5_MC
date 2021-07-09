@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+    "uuid": "71996bc1-c7ad-4058-90f6-3a786ec62e34",
+    "name": "五维介质",
+    "version": [0, 0, 1],
+    "description": "目前包含：海蜇皮。By BuringStraw"
+     },
+    "modules": [
+      {
+        "description": "五维行为包",
+        "version": [0, 0, 1],
+        "uuid": "0a68f4b1-ca36-4bf6-a702-4e6ba254e74c",
+        "type": "data"
+      }
+    ]
+}

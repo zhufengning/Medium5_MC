@@ -1,0 +1,9 @@
+{
+   "resource_pack_name" : "vanilla",
+   "texture_data" : {
+      "five:haiyi_core":{
+         "textures":"textures/items/haiyi_core"
+      }
+   },
+   "texture_name" : "atlas.items"
+}
